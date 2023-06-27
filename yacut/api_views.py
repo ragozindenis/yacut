@@ -37,7 +37,5 @@ def add_new_url():
 def get_url(custom_id):
     url = URLMap.query.filter_by(short=custom_id).first()
     if url is None:
-        raise InvalidAPIUsage(
-            'Указанный id не найден', HTTPStatus.NOT_FOUND
-            )
+        raise InvalidAPIUsage('Указанный id не найден', HTTPStatus.NOT_FOUND)
     return jsonify({'url': url.original}), HTTPStatus.OK

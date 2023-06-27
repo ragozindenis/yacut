@@ -1,5 +1,4 @@
 import os
-from yacut import app
 
 
 class Config(object):

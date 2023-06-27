@@ -12,14 +12,12 @@ class URLMap(db.Model):
     short = db.Column(db.String(16), unique=True)
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
 
-
     def to_dict(self):
         url_root = request.url_root
         return dict(
             url = self.original,
             short_link = parse.urljoin(url_root, self.short)
         )
-
 
     def from_dict(self, data):
         for field_model, field_api in app.config['FIELDS_API'].items():
