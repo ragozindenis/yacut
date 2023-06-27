@@ -19,11 +19,13 @@ def get_unique_short_id():
         return get_unique_short_id()
     return random_string
 
+
 def check_correct_url(url):
     if urlparse(url).scheme and urlparse(url).netloc:
         return True
     else:
         False
+
 
 def check_correct_custom_id(custom_id):
     check_whitespace = set(whitespace)
