@@ -36,4 +36,4 @@ def index_view():
 def url_view(short):
     return redirect(
         URLMap.query.filter_by(short=short).first_or_404().original
-        )
+    )

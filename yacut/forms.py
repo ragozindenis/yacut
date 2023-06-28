@@ -18,8 +18,8 @@ class URLMapForm(FlaskForm):
             Regexp(
                 app.config['REGEX_STRING'],
                 message='Указано недопустимое имя для короткой ссылки'
-                ),
+            ),
             Optional()
-            ]
+        ]
     )
     submit = SubmitField('Создать')
