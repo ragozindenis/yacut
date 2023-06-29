@@ -19,9 +19,11 @@ def index_view():
             short_new_url = get_unique_short_id()
             if not short_new_url:
                 flash(
-                    ('Произошла ошибка, '
-                    'попробуйте ввести свой вариант короткой ссылки '
-                    'или зайти позже.'),
+                    (
+                        'Произошла ошибка, '
+                        'попробуйте ввести свой вариант короткой ссылки '
+                        'или зайти позже.'
+                    ),
                     'max_call_stack'
                 )
                 return render_template('index.html', form=form)
