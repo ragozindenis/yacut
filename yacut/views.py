@@ -17,6 +17,14 @@ def index_view():
             return render_template('index.html', form=form)
         if not short_new_url:
             short_new_url = get_unique_short_id()
+            if not short_new_url:
+                flash(
+                    ('Произошла ошибка, '
+                    'попробуйте ввести свой вариант короткой ссылки '
+                    'или зайти позже.'),
+                    'max_call_stack'
+                )
+                return render_template('index.html', form=form)
         if URLMap.query.filter_by(short=short_new_url).first() is not None:
             flash(f'Имя {short_new_url} уже занято!', 'exist_url')
             return render_template('index.html', form=form)

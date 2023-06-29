@@ -12,3 +12,4 @@ class Config(object):
     AUTOGENERATION_LENGTH = 6
     MAX_SHORT_URL_LENGTH = 16
     REGEX_STRING = '^[0-9A-Za-z]{1,16}$'
+    MAX_CALL_STACK = 1000

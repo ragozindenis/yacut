@@ -45,6 +45,15 @@
               {% endwith %}
             </p>
             {{ form.submit(class="btn btn-primary") }}
+            {% with messages = get_flashed_messages(category_filter=["max_call_stack"]) %}
+              {% if messages %}
+                {% for message in messages %}
+                <h5 class="text-center">
+                  <span style="color: red">{{ message }}</span>
+                </h5>
+                {% endfor %}
+              {% endif %}
+            {% endwith %}
           </form>
         </div>
         <div class="col-sm">

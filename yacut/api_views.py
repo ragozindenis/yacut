@@ -21,6 +21,12 @@ def add_new_url():
         raise InvalidAPIUsage('\"url\" является обязательным полем!')
     if 'custom_id' not in data or not data['custom_id']:
         data['custom_id'] = get_unique_short_id()
+        if not data['custom_id']:
+            raise InvalidAPIUsage(
+                'Произошла ошибка, '
+                'попробуйте ввести свой вариант короткой ссылки \"custom_id\" '
+                'или зайти позже.'
+            )
     if not check_correct_custom_id(data['custom_id']):
         raise InvalidAPIUsage('Указано недопустимое имя для короткой ссылки')
     if not check_correct_url(data['url']):
